@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert' show base64, json;
 import 'dart:typed_data';
 import 'dart:ui';
+import 'package:flutter/material.dart';
 import 'dart:ui' as ui show decodeImageFromPixels;
 
 import 'package:flutter/foundation.dart';
@@ -121,9 +122,7 @@ class Images {
   }
 
   Future<Image> _loadBytes(Uint8List bytes) {
-    final completer = Completer<Image>();
-    decodeImageFromList(bytes, completer.complete);
-    return completer.future;
+    return decodeImageFromList(bytes);
   }
 
   Future<Image> _createBmp(Uint8List pixels, int width, int height) async {
